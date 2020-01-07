@@ -2,6 +2,8 @@
 
 # Spectacle Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/micleners/cypress-retro.svg)](https://greenkeeper.io/)
+
 ## Contents
 
 - [Reference](#reference)
