@@ -22,7 +22,7 @@ import createTheme from "spectacle/lib/themes/default";
 
 const images = {
   cypress: require("../assets/cypress-bw.png"),
-  sai: require("../assets/sai.svg"),
+  sai: require("../assets/sai.png"),
   dsmjs: require("../assets/dsmjs.png"),
   twitter: require("../assets/twitter.png"),
   goodWork: require("../assets/good-work.gif")
@@ -100,26 +100,18 @@ export default class Presentation extends React.Component {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 alignItems: "center"
               }}
             >
-              <img
-                src={images.dsmjs}
-                style={{ marginRight: 15 }}
-                width="100px"
-              />{" "}
-              dsmJS
+            <span>  From</span>
+              <img src={images.dsmjs} style={{ marginLeft: 15 }} width="100px" />
+            <span>*</span>
+            <span>Hosted by</span>
+              <img src={images.sai} style={{ margin: 15 }} width="500px" />
             </div>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row"
-              }}
-            >
-              Hosted by Source Allies
-              <img src={images.sai} style={{ marginRight: 15 }} width="50px" />
-            </div>
+            {/* <img src={images.sai} style={{ marginRight: 15 }} width="50px" /> */}
+            {/* </div> */}
           </Heading>
           <Heading size={5} caps lineHeight={1} textColor="darkText">
             January 14, 2020
