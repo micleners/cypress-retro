@@ -1,66 +1,31 @@
-[![Maintenance Status][maintenance-image]](#maintenance-status)
-
-# Spectacle Boilerplate
-
+This presentation was created in [Spectacle](https://github.com/FormidableLabs/spectacle)
+A [ReactJS](https://reactjs.org/)-based Presentation Library.
 [![Greenkeeper badge](https://badges.greenkeeper.io/micleners/cypress-retro.svg)](https://greenkeeper.io/)
 
-## Contents
+## Cypress for E2E Testing: A Retrospective
 
-- [Reference](#reference)
-- [Getting Started](#getting-started)
-- [Tutorial](#tutorial)
-- [Build & Deployment](#build-deployment)
+If you've worked with Angular, you have probably at least seen Protractor as the end-to-end (E2E) testing solution provided when you `ng new` a project. If you have every worked with Protractor or other selenium based solutions, you have likely become challenged and frustrated with the experience.
 
-## Reference
+Our team chose to go towards greener, more JS based pastures by opting to use Cypress instead of Protractor. Was the grass greener on the other side? We sure think so! Here's been our experience.
 
-The Spectacle core API is available in the [Spectacle Docs](https://github.com/FormidableLabs/spectacle/blob/master/README.md).
+*Note: E2E testing can sometimes be referred to as UI testing - because the UI is the entry point at one end. I may use these terms interchangeably but will make a distinction between our use case for the two later in this article*
 
-## Getting Started
+### What is Cypress?
+Cypress is a "fast, easy and reliable testing for anything that runs in a browser". It is batteries included with baked in features and perks. Cypress has a strong user community and great documentation.
 
-1. Download the boilerplate
+It also has limitations. Most notably, Cypress currently only supports Chrome. It also comes with inherent concerns that all hot and new open source projects come with: what if the next hot thing comes out and maintainers jump ship? Not likely, and the same thing could happen with Protractor as we have seen with [tslint](#url)
 
-   ```sh
-   git clone git@github.com:FormidableLabs/spectacle-boilerplate.git
-   ```
+[video of cypress usage](url)
 
-2. Remove existing version control
+### Bad rap for E2E testing
+End-to-end testing has a fraught history of being flaky and unreliable. This is partially because sometimes 1s and 0s in software misfires and software running on the internet over HTTP requests in the browser compounds this.
 
-   ```sh
-   rm -R .git
-   ```
+Sometimes requests don't come through. Sometimes it takes 0.3 seconds for that element to appear on the DOM. Sometime it never appears. As test suites grow, the likelihood of all tests passing in a single run diminishes. We can try to wrangle instability in Selenium based solutions with waits, but then sometimes things never return. Then we have to do error handing and <strong>*Ack!</strong> I'm going home*
 
-3. Install dependencies
+Cypress mitigates a lot of these headache points with:
+- Auto retry capability
+- Sweet debugging capabilities
+- Traffic control for flaky API calls
+- Wait helpers for DOM elements and XHR requests
 
-   ```sh
-   yarn install
-   ```
-
-4. Start the webpack server. The server will run at [`localhost:3000`](http://localhost:3000).
-
-   ```sh
-   yarn start
-   ```
-
-## Tutorial
-
-If want you a step-by-step guide for getting started with Spectacle, a basic tutorial is available [here](https://github.com/FormidableLabs/spectacle/blob/master/docs/tutorial.md).
-
-## Build & Deployment
-
-Building the dist version of the project is as easy as running
-
-```sh
-yarn build
-```
-
-If you want to deploy the slideshow to surge, run
-
-```sh
-yarn deploy
-```
-
-## Maintenance Status
-
-**Active:** Formidable is actively working on this project, and we expect to continue for work for the foreseeable future. Bug reports, feature requests and pull requests are welcome. 
-
-[maintenance-image]: https://img.shields.io/badge/maintenance-active-green.svg
+### What I wish I knew before starting
