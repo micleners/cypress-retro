@@ -25,8 +25,8 @@ const images = {
   sai: require("../assets/sai.png"),
   dsmjs: require("../assets/dsmjs.png"),
   twitter: require("../assets/twitter.png"),
-  goodWork: require("../assets/good-work.gif")
 };
+
 
 // Require CSS
 require("normalize.css");
@@ -100,18 +100,28 @@ export default class Presentation extends React.Component {
               style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 alignItems: "center"
               }}
             >
-            <span>  From</span>
-              <img src={images.dsmjs} style={{ marginLeft: 15 }} width="100px" />
-            <span>*</span>
-            <span>Hosted by</span>
+              <span> From</span>
+              <img
+                src={images.dsmjs}
+                style={{ marginLeft: 15 }}
+                width="100px"
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <span>Hosted by</span>
               <img src={images.sai} style={{ margin: 15 }} width="500px" />
             </div>
-            {/* <img src={images.sai} style={{ marginRight: 15 }} width="50px" /> */}
-            {/* </div> */}
           </Heading>
           <Heading size={5} caps lineHeight={1} textColor="darkText">
             January 14, 2020
@@ -147,6 +157,39 @@ export default class Presentation extends React.Component {
             <ListItem>Fast, easy and reliable E2E testing</ListItem>
             <ListItem>Batteries included</ListItem>
             <ListItem>Great docs and strong community</ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="dark">
+          <Heading size={2} lineHeight={1.1} textColor="text">
+            Who uses Cypress?
+          </Heading>
+          <br></br>
+          <Heading size={4} lineHeight={1.1} textColor="text">
+            Developers and QA engineers 🙋‍♀️ building web applications and testing
+          </Heading>
+          <br></br>
+          <List textColor="text">
+            <ListItem>End-to-end tests</ListItem>
+            <ListItem>Integration tests</ListItem>
+            <ListItem>Unit tests</ListItem>
+            <ListItem>Acceptance tests</ListItem>
+            <ListItem>Regression tests</ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="dark">
+          <Heading size={2} lineHeight={1.1} textColor="text">
+            What is Cypress an alternative to?
+          </Heading>
+          <br></br>
+          <Heading size={4} lineHeight={1.1} textColor="text">
+            Selenium based testing platfroms and having to use TestBed 😩
+          </Heading>
+          <br></br>
+          <List textColor="text">
+            <ListItem>Protractor</ListItem>
+            <ListItem>Shallow mounting with TestBed</ListItem>
           </List>
         </Slide>
 
