@@ -1,5 +1,7 @@
 This presentation was created in [Spectacle](https://github.com/FormidableLabs/spectacle)
+
 A [ReactJS](https://reactjs.org/)-based Presentation Library.
+
 [![Greenkeeper badge](https://badges.greenkeeper.io/micleners/cypress-retro.svg)](https://greenkeeper.io/)
 
 ## Cypress for E2E Testing: A Retrospective
