@@ -1,5 +1,5 @@
 // Import React
-import React from "react";
+import React from 'react';
 
 // Import Spectacle Core tags
 import {
@@ -15,44 +15,43 @@ import {
   Slide,
   Text,
   Link
-} from "spectacle";
+} from 'spectacle';
 
 // Import theme
-import createTheme from "spectacle/lib/themes/default";
+import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-  cypress: require("../assets/cypress-bw.png"),
-  sai: require("../assets/sai.png"),
-  dsmjs: require("../assets/dsmjs.png"),
-  twitter: require("../assets/twitter.png"),
+  cypress: require('../assets/cypress-bw.png'),
+  sai: require('../assets/sai.png'),
+  dsmjs: require('../assets/dsmjs.png'),
+  twitter: require('../assets/twitter.png')
 };
 
-
 // Require CSS
-require("normalize.css");
+require('normalize.css');
 
 const themeColors = {
-  dark: "#1C1B21",
-  text: "#BBBBBB",
-  lightText: "#EAEAEA",
-  darkText: "#3D4554",
-  green: "#26D9D2",
-  red: "#EF5350",
-  aqua: "#24c4b7",
-  yellow: "#fded07",
-  purple: "#663399"
+  dark: '#1C1B21',
+  text: '#BBBBBB',
+  lightText: '#EAEAEA',
+  darkText: '#3D4554',
+  green: '#26D9D2',
+  red: '#EF5350',
+  aqua: '#24c4b7',
+  yellow: '#fded07',
+  purple: '#663399'
 };
 
 const theme = createTheme(themeColors, {
   primary: {
-    name: "Oxygen Mono",
+    name: 'Oxygen Mono',
     googleFont: true,
-    styles: ["400", "700i"]
+    styles: ['400', '700i']
   },
   secondary: {
-    name: "Roboto Mono",
+    name: 'Roboto Mono',
     googleFont: true,
-    styles: ["400", "700i"]
+    styles: ['400', '700i']
   }
 });
 
@@ -60,13 +59,13 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Deck
-        transition={["zoom", "slide"]}
+        transition={['zoom', 'slide']}
         transitionDuration={500}
         contentWidth={1400}
         theme={theme}
         bgColor="dark"
       >
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             <span style={{ color: themeColors.yellow }}>Cypress</span> for E2E
             Testing:
@@ -74,34 +73,34 @@ export default class Presentation extends React.Component {
           <Heading size={3} lineHeight={1.1} textColor="darkText">
             A Retrospective
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} caps lineHeight={1} textColor="text">
             Michael Leners
           </Heading>
           <Heading size={6} lineHeight={1} textColor="darkText">
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center"
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center'
               }}
             >
               <img
                 src={images.twitter}
                 style={{ marginRight: 15 }}
                 width="50px"
-              />{" "}
+              />{' '}
               @micLeners
             </div>
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} lineHeight={1} textColor="text">
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
               }}
             >
               <span> From</span>
@@ -113,10 +112,10 @@ export default class Presentation extends React.Component {
             </div>
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
               }}
             >
               <span>Hosted by</span>
@@ -128,31 +127,31 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             <div
               style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center"
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center'
               }}
             >
-              What is{" "}
+              What is{' '}
               <img
                 src={images.cypress}
                 style={{ marginLeft: 40 }}
                 width="400"
-              />{" "}
+              />{' '}
               ?
             </div>
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} lineHeight={1.1} textColor="text">
             Fast, easy and reliable testing for anything that runs in a browser
             🌐
           </Heading>
-          <br></br>
+          <br />
           <List textColor="text">
             <ListItem>Fast, easy and reliable E2E testing</ListItem>
             <ListItem>Batteries included</ListItem>
@@ -160,15 +159,15 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             Who uses Cypress?
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} lineHeight={1.1} textColor="text">
             Developers and QA engineers 🙋‍♀️ building web applications and testing
           </Heading>
-          <br></br>
+          <br />
           <List textColor="text">
             <ListItem>End-to-end tests</ListItem>
             <ListItem>Integration tests</ListItem>
@@ -178,30 +177,30 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             What is Cypress an alternative to?
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} lineHeight={1.1} textColor="text">
             Selenium based testing platfroms and having to use TestBed 😩
           </Heading>
-          <br></br>
+          <br />
           <List textColor="text">
             <ListItem>Protractor</ListItem>
             <ListItem>Shallow mounting with TestBed</ListItem>
           </List>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             What does it cost?
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} lineHeight={1.1} textColor="text">
             Free for a smorgasbord of features 🥗
           </Heading>
-          <br></br>
+          <br />
           <List textColor="text">
             <ListItem>Debuggability</ListItem>
             <ListItem>Real time reloads</ListItem>
@@ -210,44 +209,45 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             Cypress Dashboard
           </Heading>
-          <br></br>
+          <br />
           <Image src="https://www.cypress.io/static/6e5d85560c5c41cf7bcf8a1a29e46ae9/c9e75/cypress-test-runner-gui-in-browser.webp" />
           <Link href="https://www.cypress.io/features">Features</Link>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             Writing + Running Tests
           </Heading>
-          <br></br>
-          <video controls autoplay="autoplay">
+          <br />
+          <video controls autoPlay="autoplay">
             <source
               src="https://www.cypress.io/static/writing-tests-24ff41477f89dd27e36b03a00da9c5a3.webm"
               type="video/webm"
             />
           </video>
-          <br></br>
+          <br />
           <Link href="https://www.cypress.io/features">Features</Link>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading
             size={2}
             lineHeight={1.1}
-            style={{ width: "150%", textAlign: "left" }}
+            style={{ width: '150%',
+              textAlign: 'left' }}
             textColor="text"
           >
             What does paying provide?
           </Heading>
-          <br></br>
+          <br />
           <Heading size={4} lineHeight={1.1} textColor="text">
             A magical dashboard 🧙‍♂️
           </Heading>
-          <br></br>
+          <br />
           <List textColor="text">
             <ListItem>Parallelization, grouping and load balancing</ListItem>
             <ListItem>Insights</ListItem>
@@ -257,25 +257,25 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
-        <Slide transition={["zoom"]} bgColor="dark">
+        <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
             Cypress Test Runner
           </Heading>
-          <br></br>
-          <video controls autoplay="autoplay">
+          <br />
+          <video controls autoPlay="autoplay">
             <source
               src="https://www.cypress.io/static/dashboard-565afdee6fc0c84a8d84e858dc1c7061.webm"
               type="video/webm"
             />
           </video>
-          <br></br>
+          <br />
           <Link href="https://www.cypress.io/features">Features</Link>
         </Slide>
 
         <Slide bgColor="text">
           <Image src={images.formidagon} width={800} />
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
+        <Slide transition={['fade']} bgColor="tertiary">
           <Heading size={6} textColor="dark" caps>
             Typography
           </Heading>
@@ -298,7 +298,7 @@ export default class Presentation extends React.Component {
             Standard text
           </Text>
         </Slide>
-        <Slide transition={["fade"]} bgColor="dark" textColor="tertiary">
+        <Slide transition={['fade']} bgColor="dark" textColor="tertiary">
           <Heading size={6} textColor="text" caps>
             Standard List
           </Heading>
@@ -309,7 +309,7 @@ export default class Presentation extends React.Component {
             <ListItem>Item 4</ListItem>
           </List>
         </Slide>
-        <Slide transition={["fade"]} bgColor="text" textColor="dark">
+        <Slide transition={['fade']} bgColor="text" textColor="dark">
           <BlockQuote>
             <Quote>Example Quote</Quote>
             <Cite margin="10px 0 0 30px">Author</Cite>
