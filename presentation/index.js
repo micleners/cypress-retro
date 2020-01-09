@@ -1,4 +1,5 @@
 // Import React
+import CodeSlide from 'spectacle-code-slide';
 import React from 'react';
 
 // Import Spectacle Core tags
@@ -74,54 +75,64 @@ export default class Presentation extends React.Component {
             A Retrospective
           </Heading>
           <br />
-          <Heading size={4} caps lineHeight={1} textColor="text">
-            Michael Leners
-          </Heading>
-          <Heading size={6} lineHeight={1} textColor="darkText">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center'
-              }}
-            >
-              <img
-                src={images.twitter}
-                style={{ marginRight: 15 }}
-                width="50px"
-              />{' '}
-              @micLeners
-            </div>
-          </Heading>
           <br />
-          <Heading size={4} lineHeight={1} textColor="text">
+          <br />
+
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <div>
+              <Heading size={4} caps lineHeight={1} textColor="text">
+                Michael Leners
+              </Heading>
+              <Heading size={6} lineHeight={1} textColor="darkText">
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'flex-end'
+                  }}
+                >
+                  <img
+                    src={images.twitter}
+                    style={{ marginRight: 15 }}
+                    width="50px"
+                  />{' '}
+                  @micLeners
+                </div>
+              </Heading>
+            </div>
+            <Image
+              src={images.dsmjs}
+              style={{ margin: '0 45px' }}
+              width="100px"
+            />
             <div
               style={{
                 display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start'
               }}
             >
-              <span> From</span>
-              <img
-                src={images.dsmjs}
-                style={{ marginLeft: 15 }}
-                width="100px"
-              />
+              <Heading
+                size={6}
+                lineHeight={0.3}
+                style={{ margin: '20px 0 0 0' }}
+              >
+                Hosted by
+              </Heading>
+              <img src={images.sai} width="500px" />
             </div>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              <span>Hosted by</span>
-              <img src={images.sai} style={{ margin: 15 }} width="500px" />
-            </div>
-          </Heading>
+          </div>
+          <br />
+          <br />
+          <br />
           <Heading size={5} caps lineHeight={1} textColor="darkText">
             January 14, 2020
           </Heading>
@@ -179,21 +190,6 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
-            What is Cypress an alternative to?
-          </Heading>
-          <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
-            Selenium based testing platfroms and having to use TestBed 😩
-          </Heading>
-          <br />
-          <List textColor="text">
-            <ListItem>Protractor</ListItem>
-            <ListItem>Shallow mounting with TestBed</ListItem>
-          </List>
-        </Slide>
-
-        <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
             What does it cost?
           </Heading>
           <br />
@@ -237,8 +233,7 @@ export default class Presentation extends React.Component {
           <Heading
             size={2}
             lineHeight={1.1}
-            style={{ width: '150%',
-              textAlign: 'left' }}
+            style={{ width: '150%', textAlign: 'left' }}
             textColor="text"
           >
             What does paying provide?
@@ -271,6 +266,38 @@ export default class Presentation extends React.Component {
           <br />
           <Link href="https://www.cypress.io/features">Features</Link>
         </Slide>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <Heading size={2} lineHeight={1.1} textColor="text">
+            What is Cypress an alternative to?
+          </Heading>
+          <br />
+          <Heading size={4} lineHeight={1.1} textColor="text">
+            Selenium based testing platforms and having to use TestBed 😩
+          </Heading>
+          <br />
+          <List textColor="text">
+            <ListItem>Protractor</ListItem>
+            <ListItem>Shallow mounting with TestBed</ListItem>
+          </List>
+        </Slide>
+
+        <CodeSlide
+          transition={[]}
+          bgColor="dark"
+          lang="js"
+          textColor="text"
+          code={require('raw-loader!../assets/code.example').default}
+          ranges={[
+            { loc: [0, 270], title: 'UI Testing in Jest' },
+            { loc: [0, 1], title: 'The Beginning' },
+            { loc: [1, 2] },
+            { loc: [1, 2], note: 'Heres a note!' },
+            { loc: [2, 3] },
+            { loc: [4, 7] },
+            { loc: [8, 10] }
+          ]}
+        />
 
         <Slide bgColor="text">
           <Image src={images.formidagon} width={800} />
