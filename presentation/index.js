@@ -172,6 +172,22 @@ export default class Presentation extends React.Component {
 
         <Slide transition={['zoom']} bgColor="dark">
           <Heading size={2} lineHeight={1.1} textColor="text">
+            Value of automated E2E testing
+          </Heading>
+          <br />
+          <Heading size={4} lineHeight={1.1} textColor="text">
+            It's the gift that keeps on giving 🎁
+          </Heading>
+          <br />
+          <List textColor="text">
+            <ListItem>Catch more defects in development</ListItem>
+            <ListItem>Tighten communication between developer and QA</ListItem>
+            <ListItem>Serves as regression test suite</ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <Heading size={2} lineHeight={1.1} textColor="text">
             Who uses Cypress?
           </Heading>
           <br />
