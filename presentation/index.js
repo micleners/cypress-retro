@@ -21,10 +21,10 @@ import {
 import createTheme from 'spectacle/lib/themes/default';
 
 const images = {
-  cypress: require('../assets/cypress-bw.png'),
-  sai: require('../assets/sai.png'),
-  dsmjs: require('../assets/dsmjs.png'),
-  twitter: require('../assets/twitter.png')
+  cypress: require('../assets/cypress-bw.png').default,
+  sai: require('../assets/sai.png').default,
+  dsmjs: require('../assets/dsmjs.png').default,
+  twitter: require('../assets/twitter.png').default
 };
 
 // Require CSS
