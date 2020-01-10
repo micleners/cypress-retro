@@ -1,0 +1,19 @@
+describe('Controller', () => {
+  beforeEach(() => {
+    matDialog = new MatDialog(null, null);
+    matDialog.open = jest.fn();
+    const router: Router =
+      jest.genMockFromModule('@angular/router');
+    authTokenService = new AuthTokenService(router);
+    authTokenService.isAuthorized = jest.fn();
+    component = new DiscardContractAddComponent(
+      matDialog,
+      authTokenService
+    );
+  });
+
+  it('can test things on the typescript level', () => {
+    component.addClicked();
+    expect(component).toBeTruthy();
+  });
+});

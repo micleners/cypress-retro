@@ -1,0 +1,21 @@
+describe('Cypress', () => {
+  beforeEach(() => {
+    cy.login();
+    cy.visit('http://localhost:4200/discard');
+  });
+
+  it('tests things on the UI', () => {
+    cy.get('.add-discard-contract').click();
+    cy.get('mat-dialog-container').should('exist');
+
+    cy.get('.market-field input').type('ADM');
+    cy.contains('mat-option', 'ADM Altamont').click();
+
+    .
+    .
+    .
+
+    cy.get('.submit-button').click();
+    cy.get('mat-dialog-container').should('not.exist');
+  });
+});

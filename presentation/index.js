@@ -1,6 +1,9 @@
 // Import React
 import CodeSlide from 'spectacle-code-slide';
 import React from 'react';
+import styled from 'styled-components';
+
+import './styles.css';
 
 // Import Spectacle Core tags
 import {
@@ -56,6 +59,35 @@ const theme = createTheme(themeColors, {
   }
 });
 
+const H1 = ({ children }) => (
+  <Heading size={2} lineHeight={1.1} textColor="text">
+    {children}
+  </Heading>
+);
+
+const H2 = ({ children }) => (
+  <Heading size={4} lineHeight={1.1} textColor="text">
+    {children}
+  </Heading>
+);
+
+const FlexRowCenter = ({ children }) => (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}
+  >
+    {children}
+  </div>
+);
+
+const ListItemIndent = ({ children }) => {
+  <ListItem style={{ marginLeft: 80 }}>{children}</ListItem>;
+};
+
 export default class Presentation extends React.Component {
   render() {
     return (
@@ -67,10 +99,10 @@ export default class Presentation extends React.Component {
         bgColor="dark"
       >
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
+          <H1>
             <span style={{ color: themeColors.yellow }}>Cypress</span> for E2E
             Testing:
-          </Heading>
+          </H1>
           <Heading size={3} lineHeight={1.1} textColor="darkText">
             A Retrospective
           </Heading>
@@ -78,14 +110,7 @@ export default class Presentation extends React.Component {
           <br />
           <br />
 
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
+          <FlexRowCenter>
             <div>
               <Heading size={4} caps lineHeight={1} textColor="text">
                 Michael Leners
@@ -124,12 +149,13 @@ export default class Presentation extends React.Component {
                 size={6}
                 lineHeight={0.3}
                 style={{ margin: '20px 0 0 0' }}
+                textColor="darkText"
               >
                 Hosted by
               </Heading>
               <img src={images.sai} width="500px" />
             </div>
-          </div>
+          </FlexRowCenter>
           <br />
           <br />
           <br />
@@ -139,15 +165,8 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
+          <H1>
+            <FlexRowCenter>
               What is{' '}
               <img
                 src={images.cypress}
@@ -155,15 +174,15 @@ export default class Presentation extends React.Component {
                 width="400"
               />{' '}
               ?
-            </div>
-          </Heading>
+            </FlexRowCenter>
+          </H1>
           <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
+          <H2>
             Fast, easy and reliable testing for anything that runs in a browser
             🌐
-          </Heading>
+          </H2>
           <br />
-          <List textColor="text">
+          <List style={{ marginLeft: 200 }} textColor="text">
             <ListItem>Fast, easy and reliable E2E testing</ListItem>
             <ListItem>Batteries included</ListItem>
             <ListItem>Great docs and strong community</ListItem>
@@ -171,15 +190,11 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            Value of automated E2E testing
-          </Heading>
+          <H1>Value of automated E2E testing</H1>
           <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
-            It's the gift that keeps on giving 🎁
-          </Heading>
+          <H2>It's the gift that keeps on giving 🎁</H2>
           <br />
-          <List textColor="text">
+          <List style={{ marginLeft: 75 }} textColor="text">
             <ListItem>Catch more defects in development</ListItem>
             <ListItem>Tighten communication between developer and QA</ListItem>
             <ListItem>Serves as regression test suite</ListItem>
@@ -187,15 +202,13 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            Who uses Cypress?
-          </Heading>
+          <H1>Who uses Cypress?</H1>
           <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
+          <H2>
             Developers and QA engineers 🙋‍♀️ building web applications and testing
-          </Heading>
+          </H2>
           <br />
-          <List textColor="text">
+          <List style={{ marginLeft: 400 }} textColor="text">
             <ListItem>End-to-end tests</ListItem>
             <ListItem>Integration tests</ListItem>
             <ListItem>Unit tests</ListItem>
@@ -205,15 +218,11 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            What does it cost?
-          </Heading>
+          <H1>What does it cost?</H1>
           <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
-            Free for a smorgasbord of features 🥗
-          </Heading>
+          <H2>Free for a smorgasbord of features 🥗</H2>
           <br />
-          <List textColor="text">
+          <List style={{ marginLeft: 250 }} textColor="text">
             <ListItem>Debuggability</ListItem>
             <ListItem>Real time reloads</ListItem>
             <ListItem>Automatic waiting</ListItem>
@@ -222,18 +231,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            Cypress Dashboard
-          </Heading>
-          <br />
-          <Image src="https://www.cypress.io/static/6e5d85560c5c41cf7bcf8a1a29e46ae9/c9e75/cypress-test-runner-gui-in-browser.webp" />
-          <Link href="https://www.cypress.io/features">Features</Link>
-        </Slide>
-
-        <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            Writing + Running Tests
-          </Heading>
+          <H1>Writing + Running Tests</H1>
           <br />
           <video controls autoPlay="autoplay">
             <source
@@ -255,11 +253,9 @@ export default class Presentation extends React.Component {
             What does paying provide?
           </Heading>
           <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
-            A magical dashboard 🧙‍♂️
-          </Heading>
+          <H2>A magical dashboard 🧙‍♂️</H2>
           <br />
-          <List textColor="text">
+          <List style={{ marginLeft: 75 }} textColor="text">
             <ListItem>Parallelization, grouping and load balancing</ListItem>
             <ListItem>Insights</ListItem>
             <ListItem>Recording and Screenshots (in dashboard)</ListItem>
@@ -269,9 +265,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            Cypress Test Runner
-          </Heading>
+          <H1>Cypress Test Runner</H1>
           <br />
           <video controls autoPlay="autoplay">
             <source
@@ -284,83 +278,234 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <Heading size={2} lineHeight={1.1} textColor="text">
-            What is Cypress an alternative to?
-          </Heading>
+          <H1>What is Cypress an alternative to?</H1>
           <br />
-          <Heading size={4} lineHeight={1.1} textColor="text">
-            Selenium based testing platforms and having to use TestBed 😩
-          </Heading>
+          <H2>Selenium based testing platforms and having to use TestBed 😩</H2>
           <br />
-          <List textColor="text">
-            <ListItem>Protractor</ListItem>
+          <List style={{ marginLeft: 270 }} textColor="text">
+            <ListItem>
+              Protractor (
+              <a href="https://techblog.fexcofts.com/2018/09/24/end-to-end-e2e-angular-testing-protractor-vs-cypress/">
+                R1
+              </a>
+              ) (
+              <a href="https://hackernoon.com/cypress-io-vs-protractor-e2e-testing-battle-d124ece91dc7">
+                R2
+              </a>
+              ) (
+              <a href="https://watirmelon.blog/category/automated-testing/">
+                R3
+              </a>
+              )
+            </ListItem>
             <ListItem>Shallow mounting with TestBed</ListItem>
           </List>
         </Slide>
 
         <CodeSlide
+          className="code"
+          transition={[]}
+          bgColor="dark"
+          lang="js"
+          textColor="dark"
+          code={require('raw-loader!../assets/testbed.example').default}
+          ranges={[
+            { loc: [0, 2], title: 'TestBed Example' },
+            { loc: [2, 8], title: 'Configuring Testing Module' },
+            {
+              loc: [3, 4],
+              title: 'Configuring Testing Module',
+              note: '`declarations` to import the components being mounted'
+            },
+            {
+              loc: [4, 5],
+              title: 'Configuring Testing Module',
+              note:
+                '`NO_ERRORS_SCHEMA` to suppress errors related to not importing child components'
+            },
+            {
+              loc: [5, 6],
+              title: 'Configuring Testing Module',
+              note:
+                '`imports` to bring in any modules your component depends on'
+            },
+            {
+              loc: [6, 7],
+              title: 'Configuring Testing Module',
+              note: '`providers` for dependency injection of services'
+            },
+            {
+              loc: [2, 8],
+              title: 'Configuring Testing Module',
+              note: 'This is a typical testbed setup'
+            },
+            { loc: [11, 19], title: 'Instantiate Component' },
+            {
+              loc: [11, 14],
+              title: 'Extract and Setup Services',
+              note:
+                'Pull out authorization service from TestBed in order to mock'
+            },
+            {
+              loc: [14, 16],
+              title: 'Extract and Setup Services',
+              note: 'Same for Angular Material dialog service'
+            },
+            {
+              loc: [16, 19],
+              title: 'Extract Component from Fixture',
+              note:
+                'Component is controller (TypeScript), fixture contains template'
+            },
+            { loc: [21, 30], title: 'Testing Dialog Modal' }
+          ]}
+        />
+
+        <CodeSlide
+          className="code"
           transition={[]}
           bgColor="dark"
           lang="js"
           textColor="text"
-          code={require('raw-loader!../assets/code.example').default}
+          code={require('raw-loader!../assets/controller.example').default}
           ranges={[
-            { loc: [0, 270], title: 'UI Testing in Jest' },
-            { loc: [0, 1], title: 'The Beginning' },
-            { loc: [1, 2] },
-            { loc: [1, 2], note: 'Heres a note!' },
-            { loc: [2, 3] },
-            { loc: [4, 7] },
-            { loc: [8, 10] }
+            { loc: [0, 2], title: 'Controller Example' },
+            {
+              loc: [2, 4],
+              title: 'Setup Services',
+              note: 'Set up authorization service and mock'
+            },
+            {
+              loc: [4, 8],
+              title: 'Setup Services',
+              note: 'Same for Angular Material dialog service'
+            },
+            {
+              loc: [8, 12],
+              title: 'Create Component',
+              note: "Like a good ol' fashioned normal object ☺️"
+            },
+            { loc: [2, 12], title: 'Configuring Testing Module?' },
+            { loc: [2, 12], title: 'Configuring Testing Module 🎉' },
+            { loc: [14, 18], title: 'Testing Dialog Modal' }
           ]}
         />
 
-        <Slide bgColor="text">
-          <Image src={images.formidagon} width={800} />
+        <CodeSlide
+          className="code"
+          transition={[]}
+          bgColor="dark"
+          lang="js"
+          textColor="text"
+          code={require('raw-loader!../assets/cypress.example').default}
+          ranges={[
+            { loc: [0, 2], title: 'Cypress Example' },
+            {
+              loc: [2, 4],
+              title: 'Setup',
+              note:
+                '`cy.login` is a custom built Cypress command to deal with authentication'
+            },
+            {
+              loc: [6, 9],
+              title: 'Open Modal',
+              note: "Assert that it's on the DOM"
+            },
+            {
+              loc: [10, 12],
+              title: 'Select in Searchable Dropdown',
+              note:
+                '`cy.contains` allows you to search for element containing text'
+            },
+            { loc: [13, 16], title: 'Do other things' },
+            {
+              loc: [17, 19],
+              title: 'Finish Flow',
+              note: 'Assert that dialog modal is no longer open.'
+            }
+          ]}
+        />
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1>Release Pipeline Flow</H1>
+          <br />
+          <H2>AUTO is a gate to stage ↺</H2>
+          <br />
+          <List style={{ marginLeft: 0 }} textColor="text"></List>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary">
-          <Heading size={6} textColor="dark" caps>
-            Typography
-          </Heading>
-          <Heading size={1} textColor="text">
-            Heading 1
-          </Heading>
-          <Heading size={2} textColor="text">
-            Heading 2
-          </Heading>
-          <Heading size={3} textColor="text">
-            Heading 3
-          </Heading>
-          <Heading size={4} textColor="text">
-            Heading 4
-          </Heading>
-          <Heading size={5} textColor="text">
-            Heading 5
-          </Heading>
-          <Text size={6} textColor="text">
-            Standard text
-          </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="dark" textColor="tertiary">
-          <Heading size={6} textColor="text" caps>
-            Standard List
-          </Heading>
-          <List>
-            <ListItem bulletStyle="star">Item 1</ListItem>
-            <ListItem bulletStyle="cross">Item 2</ListItem>
-            <ListItem>Item 3</ListItem>
-            <ListItem>Item 4</ListItem>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1>Integrating into CI/CD</H1>
+          <br />
+          <H2>AUTO is a gate to stage ↺</H2>
+          <br />
+          <List style={{ marginLeft: 0 }} textColor="text">
+            <ListItem>Build passes pending integration tests:</ListItem>
+            <ListItemIndent>
+              Frontend (Jest) and API (MSTest) unit tests
+            </ListItemIndent>
+            <ListItemIndent>
+              SpecFlow API acceptance tests
+            </ListItemIndent>
+            <ListItem>Build deploys to DEV and AUTO concurrently</ListItem>
+            <ListItem>AUTO runs Cypress against itself</ListItem>
+            <ListItem>AUTO deploy fails if any Cypress tests fail</ListItem>
+            <ListItem>
+              Screenshots and Videos saved to{' '}
+              <a href="https://vs-pioneer.visualstudio.com/project0/_build/results?buildId=175461&view=artifacts&type=publishedArtifacts">
+                build artifact
+              </a>
+            </ListItem>
+            <ListItem>We don't go to STAGE unless AUTO is green</ListItem>
           </List>
         </Slide>
-        <Slide transition={['fade']} bgColor="text" textColor="dark">
-          <BlockQuote>
-            <Quote>Example Quote</Quote>
-            <Cite margin="10px 0 0 30px">Author</Cite>
-          </BlockQuote>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1>Feature Flag Flow</H1>
+          <br />
+          <H2>Integrating with Launch Darkly 🌚</H2>
+          <br />
+          <List style={{ marginLeft: 100 }} textColor="text">
+            <ListItem>Flag on in DEV/Local</ListItem>
+            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+            <ListItem>Cypress passes in AUTO w/o feature</ListItem>
+            <ListItem>Update Cypress locally w/ flag on</ListItem>
+            <ListItem>Cypress PR merges => Feature flag on in AUTO </ListItem>
+            <ListItem>Cypress passes in AUTO w/ new feature 🎉</ListItem>
+          </List>
         </Slide>
-        <Slide>
-          <Image src={images.goodWork} width={500} />
-          <Notes>gifs work too</Notes>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1>Team Dynamics</H1>
+          <br />
+          <H2>Cypress brings QA and Devs closer together 🤝</H2>
+          <br />
+          <List style={{ marginLeft: 100 }} textColor="text">
+            <ListItem>Flag on in DEV/Local</ListItem>
+            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1>Authentication and Authorization</H1>
+          <br />
+          <H2>Cypress brings QA and Devs closer together 🤝</H2>
+          <br />
+          <List style={{ marginLeft: 100 }} textColor="text">
+            <ListItem>Flag on in DEV/Local</ListItem>
+            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+          </List>
+        </Slide>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1>Traffic Control</H1>
+          <br />
+          <H2>Cypress brings QA and Devs closer together 🤝</H2>
+          <br />
+          <List style={{ marginLeft: 100 }} textColor="text">
+            <ListItem>Flag on in DEV/Local</ListItem>
+            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+          </List>
         </Slide>
       </Deck>
     );
