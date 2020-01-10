@@ -1,0 +1,9 @@
+.code h1 {
+  border: none !important;
+  color: #bbbbbb !important;
+  background: #000000;
+}
+
+.code div {
+  color: white;
+}

@@ -28,7 +28,7 @@ Free tier also provides the capability to take screenshots, videos and output re
 
 The benefits of the paid tier of Cypress a pretty straight forward: a dope magical dashboard with a history of your test runs, including those video and screenshots mentioned above. We figured out how to extract these into our pipeline
 
-### Bad rap for E2E testing
+### Bad rap for E2E testing ** add to presentation
 
 End-to-end testing has a fraught history of being flaky and unreliable. This is partially because sometimes 1s and 0s in software misfires and software running on the internet over HTTP requests in the browser compounds this.
 
@@ -143,3 +143,17 @@ describe('Cypress', () => {
   });
 });
 ```
+
+### Our Team Workflow
+We've found that writing E2E tests has bolstered communication on our team, particularly bringing our dev to QA feedback loop tighter.
+
+At the beginning of each story, developers and testing come together to whiteboard a story around acceptance criteria. If needed, developers will have a separate technical implementation whiteboarding session. 
+
+When the devs are close to wrapping up feature work, they meet again with QA to discuss what what implemnted. At this point, test cases have been written, are refined, and the developeres and QA can decide which test cases should be automated via Cypress (or SpecFlow if the test is API/DB related).
+
+QA rigorously tests test cases flagged as automated. They then reconcile the Cypress tests to assure they pass the test case. Then in the future, Cypress can act as our regression test sweet and QA can focus more on smoke and exploratory testing.
+
+### Integration with Build and Deploys (working towards CI/CD)
+Said shortly, we run Cypress tests in our deployed AUTO environment. AUTO is required to be passing (green) in order to go to stage.
+
+For 
