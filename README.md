@@ -165,7 +165,7 @@ The AUTO release does the same as DEV and AUTO with an additional step. Once the
 
 For tests that fail, we capture screen-shots. Regardless of tests passing or failing, videos are captured of each test. Both of these are saved to the build artifact that runs the Cypress tests.
 
-The initial setup in Azure was based off of [this blog](https://mariocardinal.wordpress.com/2019/03/05/configuring-cypress-in-ci-with-azure-devops-pipelines/), however we received further help from our DevOps colleague to save the screen-shots and videos as a build artifact.
+The initial setup in Azure was done by a teammate and we received further help from our DevOps colleague to save the screen-shots and videos as a build artifact.
 
 ### Working with Feature Flags
 Given our CI/CD and QA workflows, we needed to figure out how to integrate feature flags into our Cypress testing flow. What we ended up agreeing on as a dev team is:
