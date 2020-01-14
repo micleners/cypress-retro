@@ -1,0 +1,59 @@
+// in cypress/support/commands.ts
+function login(secret: string, id: string) {
+  cy.request({
+    method: 'POST',
+    url: SSO_TOKEN,
+    form: true,
+    body: {
+      grant_type: 'client_credentials',
+      client_id: id,
+      client_secret: secret,
+      resource: RESOURCE_ID
+    }
+  }).then(response => {
+    const adalToken = response.body.access_token;
+    window.localStorage.setItem(
+      'adal.access.token.keyede' + RESOURCE_ID,
+      adalToken
+    );
+
+    window.localStorage.setItem('adal.idtoken', adalToken);
+  });
+}
+
+export function loginWriteAll() {
+  login(WRITE_ALL_SECRET, WRITE_ALL_ID);
+}
+
+export function loginReadAll() {
+  login(READ_ALL_SECRET, READ_ALL_ID);
+}
+
+export function loginReporting() {
+  login(REPORTING_SECRET, REPORTING_ID);
+}
+
+// in cypress/integration/test.spec.ts
+describe('writeAll role', () => {
+  beforeEach(() => {
+    cy.loginWriteAll();
+    cy.visit(guiUrl);
+  });
+  ... tests ...
+});
+
+describe('readAll role', () => {
+  beforeEach(() => {
+    cy.loginReadAll();
+    cy.visit(guiUrl);
+  });
+  ... tests ...
+});
+
+describe('reporting role', () => {
+  beforeEach(() => {
+    cy.loginReporting();
+    cy.visit(guiMbUrl);
+  });
+  ... tests ...
+});

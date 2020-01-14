@@ -59,11 +59,15 @@ const theme = createTheme(themeColors, {
   }
 });
 
-const H1 = ({ children }) => (
+const H1Norm = ({ children }) => (
   <Heading size={2} lineHeight={1.1} textColor="text">
     {children}
   </Heading>
 );
+
+const H1Col1 = styled(H1Norm)`
+  color: ${themeColors.yellow};
+`;
 
 const H2 = ({ children }) => (
   <Heading size={4} lineHeight={1.1} textColor="text">
@@ -84,9 +88,9 @@ const FlexRowCenter = ({ children }) => (
   </div>
 );
 
-const ListItemIndent = ({ children }) => {
-  <ListItem style={{ marginLeft: 80 }}>{children}</ListItem>;
-};
+const ListItemIndent = ({ children }) => (
+  <ListItem style={{ marginLeft: 80 }}>{children}</ListItem>
+);
 
 export default class Presentation extends React.Component {
   render() {
@@ -99,10 +103,10 @@ export default class Presentation extends React.Component {
         bgColor="dark"
       >
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>
+          <H1Norm>
             <span style={{ color: themeColors.yellow }}>Cypress</span> for E2E
             Testing:
-          </H1>
+          </H1Norm>
           <Heading size={3} lineHeight={1.1} textColor="darkText">
             A Retrospective
           </Heading>
@@ -165,7 +169,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>
+          <H1Norm>
             <FlexRowCenter>
               What is{' '}
               <img
@@ -175,7 +179,7 @@ export default class Presentation extends React.Component {
               />{' '}
               ?
             </FlexRowCenter>
-          </H1>
+          </H1Norm>
           <br />
           <H2>
             Fast, easy and reliable testing for anything that runs in a browser
@@ -186,11 +190,27 @@ export default class Presentation extends React.Component {
             <ListItem>Fast, easy and reliable E2E testing</ListItem>
             <ListItem>Batteries included</ListItem>
             <ListItem>Great docs and strong community</ListItem>
+            <ListItem>Easy to install</ListItem>
+            <ListItemIndent>Can setup TypeScript (<a href="https://github.com/bahmutov/add-typescript-to-cypress">R1</a>) (<a href="https://medium.com/joolsoftware/unittesting-angular-components-with-cypress-202a38d9f81a">R2</a>)</ListItemIndent>
           </List>
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Value of automated E2E testing</H1>
+          <H1Norm>Bad Rap for E2E Testing</H1Norm>
+          <br />
+          <H2>Flakiness and frustration 😫</H2>
+          <br />
+          <List style={{ marginLeft: 75 }} textColor="text">
+            <ListItem>Waiting on API calls/flaky API calls</ListItem>
+            <ListItem>Waiting DOM changes and load time</ListItem>
+            <ListItem>Inconsistent browser renders from run to run</ListItem>
+            <ListItem>Error catching and handling</ListItem>
+          </List>
+          <H2>Cypress has solutions baked in 😎</H2>
+        </Slide>
+
+        <Slide transition={['zoom']} bgColor="dark">
+          <H1Col1>Automated E2E Testing Value</H1Col1>
           <br />
           <H2>It's the gift that keeps on giving 🎁</H2>
           <br />
@@ -202,7 +222,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Who uses Cypress?</H1>
+          <H1Norm>Who uses Cypress?</H1Norm>
           <br />
           <H2>
             Developers and QA engineers 🙋‍♀️ building web applications and testing
@@ -218,7 +238,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>What does it cost?</H1>
+          <H1Norm>What does it cost?</H1Norm>
           <br />
           <H2>Free for a smorgasbord of features 🥗</H2>
           <br />
@@ -231,7 +251,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Writing + Running Tests</H1>
+          <H1Norm>Writing + Running Tests</H1Norm>
           <br />
           <video controls autoPlay="autoplay">
             <source
@@ -265,7 +285,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Cypress Test Runner</H1>
+          <H1Norm>Cypress Test Runner</H1Norm>
           <br />
           <video controls autoPlay="autoplay">
             <source
@@ -278,7 +298,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>What is Cypress an alternative to?</H1>
+          <H1Norm>What is Cypress an alternative to?</H1Norm>
           <br />
           <H2>Selenium based testing platforms and having to use TestBed 😩</H2>
           <br />
@@ -427,7 +447,7 @@ export default class Presentation extends React.Component {
         />
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Release Pipeline Flow</H1>
+          <H1Norm>Release Pipeline Flow</H1Norm>
           <br />
           <H2>AUTO is a gate to stage ↺</H2>
           <br />
@@ -435,7 +455,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Integrating into CI/CD</H1>
+          <H1Norm>Integrating into CI/CD</H1Norm>
           <br />
           <H2>AUTO is a gate to stage ↺</H2>
           <br />
@@ -444,9 +464,7 @@ export default class Presentation extends React.Component {
             <ListItemIndent>
               Frontend (Jest) and API (MSTest) unit tests
             </ListItemIndent>
-            <ListItemIndent>
-              SpecFlow API acceptance tests
-            </ListItemIndent>
+            <ListItemIndent>SpecFlow API acceptance tests</ListItemIndent>
             <ListItem>Build deploys to DEV and AUTO concurrently</ListItem>
             <ListItem>AUTO runs Cypress against itself</ListItem>
             <ListItem>AUTO deploy fails if any Cypress tests fail</ListItem>
@@ -461,7 +479,7 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Feature Flag Flow</H1>
+          <H1Norm>Feature Flag Flow</H1Norm>
           <br />
           <H2>Integrating with Launch Darkly 🌚</H2>
           <br />
@@ -476,37 +494,119 @@ export default class Presentation extends React.Component {
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Team Dynamics</H1>
+          <H1Norm>Team Dynamics</H1Norm>
           <br />
-          <H2>Cypress brings QA and Devs closer together 🤝</H2>
+          <H2>Cypress brings QA and Devs together 🤝</H2>
           <br />
           <List style={{ marginLeft: 100 }} textColor="text">
-            <ListItem>Flag on in DEV/Local</ListItem>
-            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+            <ListItem>Start of story: Dev + QA Whiteboard</ListItem>
+            <ListItem>Devs work on and merge feature work</ListItem>
+            <ListItem>Devs + QA decide what to automate</ListItem>
+            <ListItem>QA manually tests, devs write Cypress</ListItem>
+            <ListItem>QA validates Cypress against test cases</ListItem>
+            <ListItem>QA marks cases as "automated" for regression</ListItem>
           </List>
         </Slide>
 
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Authentication and Authorization</H1>
+          <H1Norm>Auth Integration</H1Norm>
           <br />
-          <H2>Cypress brings QA and Devs closer together 🤝</H2>
+          <H2>It is a necessary evil 🤷‍♀️</H2>
           <br />
           <List style={{ marginLeft: 100 }} textColor="text">
-            <ListItem>Flag on in DEV/Local</ListItem>
-            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+            <ListItem>Our Stack: Azure AD, SSO, EasyAuth, ADAL</ListItem>
+            <ListItem>Must have token to access GUI</ListItem>
+            <ListItem>Must have valid token to access API</ListItem>
+            <ListItem>EasyAuth == barrier around deployed API</ListItem>
+            <ListItem>Using Cypress request we:</ListItem>
+            <ListItemIndent>Call to SSO for token</ListItemIndent>
+            <ListItemIndent>Use desired service account auth level</ListItemIndent>
+            <ListItemIndent>Save token in place ADAL is expecting it</ListItemIndent>
           </List>
         </Slide>
 
+        <CodeSlide
+          className="code"
+          transition={[]}
+          bgColor="dark"
+          lang="js"
+          textColor="text"
+          code={require('raw-loader!../assets/auth.example').default}
+          ranges={[
+            { loc: [2, 22], title: 'Setup Auth Request' },
+            {
+              loc: [2, 4],
+              title: 'Setup',
+              note:
+                '`cy.login` is a custom built Cypress command to deal with authentication'
+            },
+            {
+              loc: [6, 9],
+              title: 'Open Modal',
+              note: "Assert that it's on the DOM"
+            },
+            {
+              loc: [10, 12],
+              title: 'Select in Searchable Dropdown',
+              note:
+                '`cy.contains` allows you to search for element containing text'
+            },
+            { loc: [13, 16], title: 'Do other things' },
+            {
+              loc: [17, 19],
+              title: 'Finish Flow',
+              note: 'Assert that dialog modal is no longer open.'
+            }
+          ]}
+        />
+
         <Slide transition={['zoom']} bgColor="dark">
-          <H1>Traffic Control</H1>
+          <H1Norm>Traffic Control</H1Norm>
           <br />
-          <H2>Cypress brings QA and Devs closer together 🤝</H2>
+          <H2>Monitor & Mock Requests 🛩</H2>
           <br />
           <List style={{ marginLeft: 100 }} textColor="text">
-            <ListItem>Flag on in DEV/Local</ListItem>
-            <ListItem>Merge feature (flag off in AUTO)</ListItem>
+            <ListItem>Wait on XHR requests (Launch Darkly)</ListItem>
+            <ListItem>Watch and assert on requests</ListItem>
+            <ListItem>Mock API returns</ListItem>
           </List>
         </Slide>
+
+        <CodeSlide
+          className="code"
+          transition={[]}
+          bgColor="dark"
+          lang="js"
+          textColor="text"
+          code={require('raw-loader!../assets/traffic.example').default}
+          ranges={[
+            { loc: [0, 2], title: 'Cypress Example' },
+            {
+              loc: [2, 4],
+              title: 'Setup',
+              note:
+                '`cy.login` is a custom built Cypress command to deal with authentication'
+            },
+            {
+              loc: [6, 9],
+              title: 'Open Modal',
+              note: "Assert that it's on the DOM"
+            },
+            {
+              loc: [10, 12],
+              title: 'Select in Searchable Dropdown',
+              note:
+                '`cy.contains` allows you to search for element containing text'
+            },
+            { loc: [13, 16], title: 'Do other things' },
+            {
+              loc: [17, 19],
+              title: 'Finish Flow',
+              note: 'Assert that dialog modal is no longer open.'
+            }
+          ]}
+        />
+
       </Deck>
     );
   }

@@ -1,0 +1,44 @@
+beforeEach(() => {
+  cy.loginWriteAll();
+  cy.server({});
+});
+
+const pendingPombTitle = 'No Pending Payment Option Market Basis Results';
+const pendingPombMessage = 'All POMB records for this basis date are Active.';
+const activePombTitle = 'No Active Payment Option Market Basis Results';
+const activePombMessage = 'All POMB records for this basis date are Pending.';
+
+const mockedPendingPombs = [
+  { 'POMB object 1' }, ..., { 'POMB object N' }
+];
+
+const mockActivePombs = [
+  { 'POMB object 1' }, ..., { 'POMB object N' }
+];
+
+it('should have a "no Active POMBS" message if there are no Active POMBs but some Pending POMBs', () => {
+  cy.route({
+    method: 'Get',
+    url: apiPombUrl,
+    response: [
+      {
+        paymentOptionMarketBasisListViewModels: [],
+        status: 'Active'
+      },
+      {
+        paymentOptionMarketBasisListViewModels: mockedPendingPombs,
+        status: 'Pending'
+      }
+    ]
+  });
+
+  cy.visitAndWaitXhr(guiPombUrl);
+
+  cy.checkNoDataMessageHidden(pendingPombTitle, pendingPombMessage);
+  cy.checkNoDataMessageHidden(activePombTitle, activePombMessage);
+
+  cy.contains('.mat-tab-label', 'Active').click();
+
+  cy.checkNoDataMessageHidden(pendingPombTitle, pendingPombMessage);
+  cy.checkNoDataMessage(activePombTitle, activePombMessage);
+});
