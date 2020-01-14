@@ -3,11 +3,6 @@ beforeEach(() => {
   cy.server({});
 });
 
-const pendingPombTitle = 'No Pending Payment Option Market Basis Results';
-const pendingPombMessage = 'All POMB records for this basis date are Active.';
-const activePombTitle = 'No Active Payment Option Market Basis Results';
-const activePombMessage = 'All POMB records for this basis date are Pending.';
-
 const mockedPendingPombs = [
   { 'POMB object 1' }, ..., { 'POMB object N' }
 ];

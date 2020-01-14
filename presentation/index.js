@@ -214,29 +214,33 @@ export default class Presentation extends React.Component {
           code={require("raw-loader!../assets/auth.example").default}
           ranges={[
             { loc: [0, 22], title: "Auth Flow with Cypress" },
-            { loc: [2, 22], title: "Setup Auth Request" },
+            { loc: [2, 22], title: "Setup Auth Token" },
             {
-              loc: [2, 4],
-              title: "Setup",
-              note:
-                "`cy.login` is a custom built Cypress command to deal with authentication"
+              loc: [2, 12],
+              title: "Setup Auth Token",
+              note: "Request Auth Token"
             },
             {
-              loc: [6, 9],
-              title: "Open Modal",
-              note: "Assert that it's on the DOM"
+              loc: [12, 16],
+              title: "Setup Auth Token",
+              note: "Set Auth Token in Storage"
             },
             {
-              loc: [10, 12],
-              title: "Select in Searchable Dropdown",
-              note:
-                "`cy.contains` allows you to search for element containing text"
+              loc: [18, 29],
+              title: "Get Permission Specific Auth Token",
+              note: "Each authorization level has its own service account."
             },
-            { loc: [13, 16], title: "Do other things" },
             {
-              loc: [17, 19],
-              title: "Finish Flow",
-              note: "Assert that dialog modal is no longer open."
+              loc: [32, 36],
+              title: "Invoke Login @ Start of Test"
+            },
+            {
+              loc: [40, 44],
+              title: "Invoke Login @ Start of Test"
+            },
+            {
+              loc: [48, 52],
+              title: "Invoke Login @ Start of Test"
             }
           ]}
         />
@@ -249,30 +253,20 @@ export default class Presentation extends React.Component {
           textColor="text"
           code={require("raw-loader!../assets/traffic.example").default}
           ranges={[
-            { loc: [0, 2], title: "Cypress Example" },
+            { loc: [0, 4], title: "Mocking API Return Values" },
             {
-              loc: [2, 4],
-              title: "Setup",
+              loc: [5, 12],
+              title: "Mocking API Return Values",
               note:
-                "`cy.login` is a custom built Cypress command to deal with authentication"
+                "Mock data for API to return"
             },
             {
-              loc: [6, 9],
-              title: "Open Modal",
-              note: "Assert that it's on the DOM"
-            },
-            {
-              loc: [10, 12],
-              title: "Select in Searchable Dropdown",
+              loc: [14, 28],
+              title: "Set Up Response from URL",
               note:
-                "`cy.contains` allows you to search for element containing text"
+                "Mocking API Return Values"
             },
-            { loc: [13, 16], title: "Do other things" },
-            {
-              loc: [17, 19],
-              title: "Finish Flow",
-              note: "Assert that dialog modal is no longer open."
-            }
+            { loc: [29, 38], title: "Check DOM for Expected Behavior" }
           ]}
         />
         <Closing />

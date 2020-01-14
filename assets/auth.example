@@ -12,11 +12,6 @@ function login(secret: string, id: string) {
     }
   }).then(response => {
     const adalToken = response.body.access_token;
-    window.localStorage.setItem(
-      'adal.access.token.keyede' + RESOURCE_ID,
-      adalToken
-    );
-
     window.localStorage.setItem('adal.idtoken', adalToken);
   });
 }
