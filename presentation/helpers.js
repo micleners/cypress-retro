@@ -39,7 +39,7 @@ export const H1Col1 = styled(H1Norm)`
 `;
 
 export const H2 = ({ children }) => (
-  <Heading size={4} lineHeight={1.1} textColor="text">
+  <Heading size={4} lineHeight={1.1} textColor="lightText">
     {children}
   </Heading>
 );

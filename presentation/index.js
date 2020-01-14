@@ -87,7 +87,7 @@ export default class Presentation extends React.Component {
           textColor="text"
           code={require("raw-loader!../assets/controller.example").default}
           ranges={[
-            { loc: [0, 2], title: "Controller Example" },
+            { loc: [0, 2], title: "Controller Example (.ts in Jest)" },
             {
               loc: [2, 4],
               title: "Setup Services",
@@ -116,7 +116,7 @@ export default class Presentation extends React.Component {
           textColor="dark"
           code={require("raw-loader!../assets/testbed.example").default}
           ranges={[
-            { loc: [0, 2], title: "TestBed Example" },
+            { loc: [0, 2], title: "TestBed Example (UI in Jest)" },
             { loc: [2, 8], title: "Configuring Testing Module" },
             {
               loc: [3, 4],

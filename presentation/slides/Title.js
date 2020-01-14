@@ -35,7 +35,7 @@ export const Title = () => (
       <span style={{ color: themeColors.yellow }}>Cypress</span> for E2E
       Testing:
     </H1Norm>
-    <Heading size={3} lineHeight={1.1} textColor="darkText">
+    <Heading size={3} lineHeight={1.1} textColor="text">
       A Retrospective
     </Heading>
     <br />
@@ -44,10 +44,10 @@ export const Title = () => (
 
     <FlexRowCenter>
       <div>
-        <Heading size={4} caps lineHeight={1} textColor="text">
+        <Heading size={4} caps lineHeight={1} textColor="lightText">
           Michael Leners
         </Heading>
-        <Heading size={6} lineHeight={1} textColor="darkText">
+        <Heading size={6} lineHeight={1} textColor="lightText">
           <div
             style={{
               display: "flex",
@@ -87,7 +87,7 @@ export const Title = () => (
     <br />
     <br />
     <br />
-    <Heading size={5} caps lineHeight={1} textColor="darkText">
+    <Heading size={5} caps lineHeight={1} textColor="text">
       January 14, 2020
     </Heading>
   </Slide>
