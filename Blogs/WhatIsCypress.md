@@ -1,5 +1,5 @@
-Cypress for E2E Testing
-## A (Mostly) Nontechnical Retrospective and Explanation of Our Flow
+# Cypress for E2E Testing
+## A (Mostly) Nontechnical Overview of the Platform and Its Uses
 
 If you've worked with Angular, you have probably seen Protractor as the end-to-end (E2E) testing solution provided when you `ng new` a project. If you have ever worked with Protractor or other Selenium based solutions, you have likely been frustrated with the experience.
 
@@ -50,7 +50,7 @@ Possibly the most important factor is that your E2E test suite serves as a regre
 
 ### What tests can Cypress replace?
 
-Cypress accesses your application through the browser, therefore it is most suitable for end-to-end acceptance tests or UI tests. If you have interest, Cypress can be used to unit test your components in Angular with some home-brewing. Considering the UI access point, Cypress is not appropriate for API testing.
+Cypress accesses your application through the browser, therefore it is most suitable for end-to-end acceptance tests or UI tests. If you have interest, Cypress can be used to [unit test your components in Angular](https://medium.com/joolsoftware/unittesting-angular-components-with-cypress-202a38d9f81a) with some home-brewing. Considering the UI access point, Cypress is not appropriate for API testing.
 
 On our team, challenges with TestBed were a strong motivation to try Cypress. TestBed is the way in Angular to set up the modules, providers, and child components necessary to shallow mount a component. It is necessary to do _any_ UI testing on a unit test level.
 

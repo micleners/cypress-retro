@@ -1,3 +1,6 @@
+# How We Use Cypress for End-to-End Testing
+## A (Mostly) Nontechnical Retrospective and Explanation My Team's E2E Testing Flow
+
 ### What tests can Cypress replace?
 
 Cypress accesses your application through the browser, therefore it is most suitable for end-to-end acceptance tests or UI tests. If you have interest, Cypress can be used to unit test your components in Angular with some home-brewing. Considering the UI access point, Cypress is not appropriate for API testing.

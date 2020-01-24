@@ -1,6 +1,101 @@
 Cypress for E2E Testing:
 ## Technical How We Do and Tips + Tricks
 
+### What tests can Cypress replace?
+
+Cypress accesses your application through the browser, therefore it is most suitable for end-to-end acceptance tests or UI tests. If you have interest, Cypress can be used to unit test your components in Angular with some home-brewing. Considering the UI access point, Cypress is not appropriate for API testing.
+
+On our team, challenges with TestBed were a strong motivation to try Cypress. TestBed is the way in Angular to set up the modules, providers, and child components necessary to shallow mount a component. It is necessary to do _any_ UI testing on a unit test level.
+
+#### TestBed/Shallow Mount
+<span style="font-size: 36px">We have opted not to do this 🧐</span>
+
+```js
+describe('Shallow Mount', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [DiscardContractAddComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [MatDialogModule, RouterTestingModule],
+      providers: [AuthTokenService, MatDialog]
+    }).compileComponents();
+  }));
+
+  beforeEach(() => {
+    authTokenService = TestBed.get(AuthTokenService);
+    authTokenService.isAuthorized = jest.fn().mockReturnValue(true);
+    matDialog = TestBed.get(MatDialog);
+    matDialog.open = jest.fn();
+    fixture = TestBed.createComponent(DiscardContractAddComponent);
+    component = fixture.componentInstance;
+  });
+
+  it('can do fixture/template tests', () => {
+    const addButton = fixture.debugElement.nativeElement.querySelector(
+      '.add-discard-contract'
+    );
+    addButton.click();
+    expect(matDialog.open).toHaveBeenCalled();
+  });
+});
+```
+
+The `configureTestingModule` method proved to be an ongoing challenge for us. Any additional material component or service injected meant additional imports or providers required. Also, extracting the services from the testbed to assign them as variables to spy on was a challenging paradigm to get into the groove of.
+
+We stopped UI testing in Jest and stuck to controller unit testing.
+
+#### Controller Tests
+<span style="font-size: 36px">We unit test typescript functionality only in Jest 😎</span>
+
+```js
+describe('Controller', () => {
+  beforeEach(() => {
+    matDialog = new MatDialog(null, null);
+    matDialog.open = jest.fn();
+
+    const router: Router = jest.genMockFromModule('@angular/router');
+    authTokenService = new AuthTokenService(router);
+    authTokenService.isAuthorized = jest.fn();
+
+    component = new DiscardContractAddComponent(matDialog, authTokenService);
+  });
+
+  it('can trigger and test things on the typescript level', () => {
+    component.addClicked();
+    expect(component).toBeTruthy();
+  });
+});
+```
+
+Focusing on controller logic has simplified our Jest tests. We offload UI testing to E2E tests in Cypress.
+
+#### Cypress
+<span style="font-size: 36px">We use Cypress to test our UI 🥳</span>
+
+```js
+describe('Cypress', () => {
+  beforeEach(() => {
+    cy.login();
+    cy.visit('http://localhost:4200/discard');
+  });
+
+  it('tests things on the UI', () => {
+    cy.get('.add-discard-contract').click();
+    cy.get('mat-dialog-container').should('exist');
+
+    cy.get('.market-field input').type('ADM');
+    cy.contains('mat-option', 'ADM Altamont').click();
+
+    .
+    .
+    .
+
+    cy.get('.submit-button').click();
+    cy.get('mat-dialog-container').should('not.exist');
+  });
+});
+```
+
 ### Authentication and Authorization
 I'll be honest, working with Azure AD, EasyAuth, and ADAL has been challenging. However, integrating auth with any end-to-end testing solution poses common challenges. We chose to follow an auth flow *as close to* our PROD auth flow as possible, rather than building a backdoor.
 
