@@ -52,93 +52,11 @@ Possibly the most important factor is that your E2E test suite serves as a regre
 
 Cypress accesses your application through the browser, therefore it is most suitable for end-to-end acceptance tests or UI tests. If you have interest, Cypress can be used to [unit test your components in Angular](https://medium.com/joolsoftware/unittesting-angular-components-with-cypress-202a38d9f81a) with some home-brewing. Considering the UI access point, Cypress is not appropriate for API testing.
 
-On our team, challenges with TestBed were a strong motivation to try Cypress. TestBed is the way in Angular to set up the modules, providers, and child components necessary to shallow mount a component. It is necessary to do _any_ UI testing on a unit test level.
+On our team, we experienced many challenges using TestBed for UI testing. This, along with a desire to E2E test were a strong motivations for trying Cypress. Now that we have fully adopted Cypress, we have ditched the use of TestBed. In Jest tests, we only test controller level logic. We then reserve Cypress for UI (mocked API calls) and E2E (real API calls) tests. We will discuss this further in subsequent posts.
 
-#### TestBed/Shallow Mount
-<span style="font-size: 36px">We have opted not to do this 🧐</span>
+### TestBed/Shallow Mount
+Cypress is a really exciting tool that helps developers get into end-to-end testing fast. It has brought a lot to our team and our process. It has brought our team closer in communication around feature expectations. It has provided us with a tool to catch defects as they are being generated. Possibly most importantly, it has created a regression testing suite that helps us feel assured that we have not negatively affected any previous features when implementing new ones.
 
-```js
-describe('Shallow Mount', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [DiscardContractAddComponent],
-      schemas: [NO_ERRORS_SCHEMA],
-      imports: [MatDialogModule, RouterTestingModule],
-      providers: [AuthTokenService, MatDialog]
-    }).compileComponents();
-  }));
+Cypress also offers a breadth of helpful features allowing developers to dive into E2E testing without having to deal with the minutia of creating a Page Object Model and writing complex waiting helpers. Lastly, the value of the interactive test runner, screen-shot and video output makes this tool highly valuable to non-developer members of our team.
 
-  beforeEach(() => {
-    authTokenService = TestBed.get(AuthTokenService);
-    authTokenService.isAuthorized = jest.fn().mockReturnValue(true);
-    matDialog = TestBed.get(MatDialog);
-    matDialog.open = jest.fn();
-    fixture = TestBed.createComponent(DiscardContractAddComponent);
-    component = fixture.componentInstance;
-  });
-
-  it('can do fixture/template tests', () => {
-    const addButton = fixture.debugElement.nativeElement.querySelector(
-      '.add-discard-contract'
-    );
-    addButton.click();
-    expect(matDialog.open).toHaveBeenCalled();
-  });
-});
-```
-
-The `configureTestingModule` method proved to be an ongoing challenge for us. Any additional material component or service injected meant additional imports or providers required. Also, extracting the services from the testbed to assign them as variables to spy on was a challenging paradigm to get into the groove of.
-
-We stopped UI testing in Jest and stuck to controller unit testing.
-
-#### Controller Tests
-<span style="font-size: 36px">We unit test typescript functionality only in Jest 😎</span>
-
-```js
-describe('Controller', () => {
-  beforeEach(() => {
-    matDialog = new MatDialog(null, null);
-    matDialog.open = jest.fn();
-
-    const router: Router = jest.genMockFromModule('@angular/router');
-    authTokenService = new AuthTokenService(router);
-    authTokenService.isAuthorized = jest.fn();
-
-    component = new DiscardContractAddComponent(matDialog, authTokenService);
-  });
-
-  it('can trigger and test things on the typescript level', () => {
-    component.addClicked();
-    expect(component).toBeTruthy();
-  });
-});
-```
-
-Focusing on controller logic has simplified our Jest tests. We offload UI testing to E2E tests in Cypress.
-
-#### Cypress
-<span style="font-size: 36px">We use Cypress to test our UI 🥳</span>
-
-```js
-describe('Cypress', () => {
-  beforeEach(() => {
-    cy.login();
-    cy.visit('http://localhost:4200/discard');
-  });
-
-  it('tests things on the UI', () => {
-    cy.get('.add-discard-contract').click();
-    cy.get('mat-dialog-container').should('exist');
-
-    cy.get('.market-field input').type('ADM');
-    cy.contains('mat-option', 'ADM Altamont').click();
-
-    .
-    .
-    .
-
-    cy.get('.submit-button').click();
-    cy.get('mat-dialog-container').should('not.exist');
-  });
-});
-```
+Stay tuned for more blog posts to come on the topic of Cypress around technical nuances of Cypress and how our team has integrated Cypress into our flow.
