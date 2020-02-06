@@ -41,35 +41,7 @@ export const Title = () => (
     <br />
     <br />
     <br />
-    <Text caps lineHeight={1} textColor="lightText">
-      The Hedgehogs
-    </Text>
-    <Text style={{ marginLeft: "100" }} lineHeight={1.1} textColor="lightText">
-      DL-TheHedgeHogs@corteva.com
-    </Text>
     <FlexRowCenter>
-      <div>
-        <Heading size={4} caps lineHeight={1} textColor="lightText">
-          Dan Rocha
-        </Heading>
-        <Heading size={6} lineHeight={1} textColor="lightText">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-end"
-            }}
-          >
-            <img
-              src={images.twitter}
-              style={{ marginRight: 15 }}
-              width="50px"
-            />{" "}
-            dan.rocha@corteva.com
-          </div>
-        </Heading>
-      </div>
-      {/* <Image src={images.dsmjs} style={{ margin: "0 45px" }} width="100px" /> */}
       <div
         style={{
           display: "flex",
@@ -94,7 +66,7 @@ export const Title = () => (
               style={{ marginRight: 15 }}
               width="50px"
             />{" "}
-            michael.leners@corteva.com
+            micleners
           </div>
         </Heading>
       </div>
