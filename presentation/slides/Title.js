@@ -66,7 +66,7 @@ export const Title = () => (
               style={{ marginRight: 15 }}
               width="50px"
             />{" "}
-            micleners
+            micLeners
           </div>
         </Heading>
       </div>
@@ -75,7 +75,7 @@ export const Title = () => (
     <br />
     <br />
     <Heading size={5} caps lineHeight={1} textColor="text">
-      January 14, 2020
+      February 12, 2020
     </Heading>
   </Slide>
 );
