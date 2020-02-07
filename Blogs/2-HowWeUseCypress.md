@@ -1,11 +1,22 @@
 # How We Use Cypress for End-to-End Testing
+
+*This blog is part of a series on end-to-end (E2E) testing in Cypress. Future posts will expound upon how my team uses Cypress and technicals around using Cypress. This information is also available in [the presentation](https://cypress-retro.micleners.com/) I give on the topic.*
+
 ## A (Mostly) Nontechnical Retrospective and Explanation My Team's E2E Testing Flow
 
-### What tests can Cypress replace?
+### What is Cypress?
 
-Cypress accesses your application through the browser, therefore it is most suitable for end-to-end acceptance tests or UI tests. If you have interest, Cypress can be used to unit test your components in Angular with some home-brewing. Considering the UI access point, Cypress is not appropriate for API testing.
+Cypress is "fast, easy and reliable testing for anything that runs in a browser". It is batteries included with baked-in features and perks. Cypress has a strong user community and great documentation.
 
-On our team, challenges with TestBed were a strong motivation to try Cypress. TestBed is the way in Angular to set up the modules, providers, and child components necessary to shallow mount a component. It is necessary to do _any_ UI testing on a unit test level.
+Cypress accesses the application via the browser, therefore it is most suitable for end-to-end (E2E) acceptance tests or user interface (UI) tests. If you have interest, Cypress can be used to unit test your components with some home-brewing. Cypress also allows for full on traffic control of API calls, so it can also be used for API testing.
+
+### What is Cypress and what Tests can it replace?
+
+Our team uses Angular, which comes with Jasmine/Karma for unit testing and Protractor for E2E tests. We chose to replace the former with Jest since our team had more experience with it and we chose not to use Protractor because of it being Selenium based.
+
+We experienced challenges with using TestBed for UI testing. TestBed is the way in Angular to set up the modules, providers, and child components necessary to shallow mount a component. It is necessary to do _any_ UI testing on a unit test level.
+
+We use Jest to unit test our components. Instead of doing these tests with TestBed, we resereved Jest unit testing for TypeScript logic only. This mean any logic around function calls and flags were tested, but their connection to the template or DOM was not at this level. This is where we leveraged Cypress tests  
 
 #### TestBed/Shallow Mount
 <span style="font-size: 36px">We have opted not to do this 🧐</span>
