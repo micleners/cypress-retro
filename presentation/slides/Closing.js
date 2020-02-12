@@ -36,12 +36,17 @@ export const Closing = () => (
       <br />
       <br />
       <Heading size={5} lineHeight={1} textColor="text">
-        cypress-retro.micleners.com
+        This Presentation: cypress-retro.micleners.com
       </Heading>
       <br />
 
       <Heading size={5} lineHeight={1} textColor="text">
-        github.com/micleners/cypress-retro
+        Article: github.com/micleners/cypress-retro
+      </Heading>
+      <br />
+
+      <Heading size={5} lineHeight={1} textColor="text">
+        Demo Repo: github.com/micleners/cypress-cotd
       </Heading>
     </List>
 
