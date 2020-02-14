@@ -2,11 +2,11 @@
 
 *This blog is part of a series on end-to-end (E2E) testing in Cypress. Future posts will expound upon how my team uses Cypress and technicals around using Cypress. This information is also available in [the presentation](https://cypress-retro.micleners.com/) I give on the topic.*
 
-## A (Mostly) Nontechnical Retrospective and Explanation My Team's E2E Testing Flow
+## A Retrospective and Explanation of My Team's E2E Testing Flow
 
 ### What is Cypress?
 
-Cypress is "fast, easy and reliable testing for anything that runs in a browser". It is batteries included with baked-in features and perks. Cypress has a strong user community and great documentation.
+[Cypress](https://www.cypress.io/features) is "fast, easy and reliable testing for anything that runs in a browser". It is batteries included so it comes fully baked-in tons of features and perks. It is also open source, has a strong user community, and great documentation.
 
 Cypress accesses the application via the browser, therefore it is most suitable for end-to-end (E2E) acceptance tests or user interface (UI) tests. If you have interest, Cypress can be used to unit test your components with some home-brewing. Cypress also allows for full on traffic control of API calls, so it can also be used for API testing.
 
@@ -108,7 +108,7 @@ describe('Cypress', () => {
 ```
 
 ### Our Team Workflow
-We've found that writing E2E tests has bolstered communication on our team, particularly tightening our dev-to-QA feedback loop.
+Every team has different dynamics and processes around quality assurance and development. We've found that writing E2E tests has bolstered communication on our team, particularly tightening our dev-to-QA feedback loop.
 
 At the beginning of each story, developers and testing come together to whiteboard a story around acceptance criteria. If needed, developers will have a separate technical implementation whiteboarding session.
 
