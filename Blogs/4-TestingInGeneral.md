@@ -3,6 +3,21 @@
 ## Abstract
 We can agree that testing is important for software development, but how and what we test is not so straight forward or agreed upon. Extending beyond unit, integration, and acceptance or end-to-end testing, our solutions need to also consider security, performance, load, usability, and exploratory testing. When there's always another bug lurking on the periphery, it's perhaps most important that a team considers the levels of testing their solution demands and agrees upon a testing plan that outlines responsibilities and expectations. From NFRs to data management, from third party integration to environments, we'll discuss levels of consideration for maximum extermination.
 
+### Unit testing:
+- JUnit and Mockito: https://mkyong.com/unittest/unit-test-what-is-mocking-and-why/
+- JUnit: https://www.vogella.com/tutorials/JUnit/article.html
+- Mockito: https://www.vogella.com/tutorials/Mockito/article.html
+
+### API Testing:
+- Rest Assured: http://rest-assured.io/ 
+- https://techbeacon.com/app-dev-testing/how-perform-api-testing-rest-assured
+- https://www.opencodez.com/software-testing/api-testing-java-using-rest-assured.htm
+
+### NFR and SRE:
+- https://www.guru99.com/non-functional-testing.html
+- https://www.cio.com/article/3192531/why-you-need-a-systems-reliability-engineer.html
+- http://executeautomation.com/blog/an-introduction-to-cucumber-for-java/
+
 ### What works best for your teams
 - Level of automation
 - Use of manual testing
