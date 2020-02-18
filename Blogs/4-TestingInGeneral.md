@@ -12,11 +12,18 @@ We can agree that testing is important for software development, but how and wha
 - Rest Assured: http://rest-assured.io/ 
 - https://techbeacon.com/app-dev-testing/how-perform-api-testing-rest-assured
 - https://www.opencodez.com/software-testing/api-testing-java-using-rest-assured.htm
+- http://executeautomation.com/blog/an-introduction-to-cucumber-for-java/
 
 ### NFR and SRE:
 - https://www.guru99.com/non-functional-testing.html
+- https://www.atlassian.com/incident-management/devops/sre
 - https://www.cio.com/article/3192531/why-you-need-a-systems-reliability-engineer.html
-- http://executeautomation.com/blog/an-introduction-to-cucumber-for-java/
+
+### Testing Types:
+- https://dev.to/thejessleigh/different-types-of-testing-explained-1ljo
+- https://medium.com/javascript-scene/behavior-driven-development-bdd-and-functional-testing-62084ad7f1f2
+- https://studentaid.gov/sites/default/files/fsawg/static/gw/docs/ciolibrary/FSA_Enterprise_Test_Management_Standards.pdf
+- https://www.testingexcellence.com/types-of-software-testing-complete-list/
 
 ### What works best for your teams
 - Level of automation
