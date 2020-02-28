@@ -17,7 +17,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.1.2",
     "normalize.css": "8.0.1",
-    "react": "^16.5.2",
+    "react": "^16.13.0",
     "react-dom": "^16.5.2",
     "spectacle": "^5.5.0",
     "spectacle-code-slide": "^0.5.2",
