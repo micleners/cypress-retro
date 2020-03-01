@@ -1,3 +1,6 @@
+## [Cypress Retro Presentation](http://cypress-retro.micleners.com/)
+## [Cypress Demo Repository](https://github.com/micleners/cypress-cotd/)
+
 This presentation was created in [Spectacle](https://github.com/FormidableLabs/spectacle)
 
 A [ReactJS](https://reactjs.org/)-based Presentation Library.
