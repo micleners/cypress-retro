@@ -63,7 +63,7 @@
     "style-loader": "^1.1.2",
     "surge": "latest",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "url-loader": "^3.0.0",
+    "url-loader": "^4.1.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.1.2",
     "webpack-dev-middleware": "^3.4.0",
